@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual de Té</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('fondo.png'); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            color: #fff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        header img {
+            width: 300px;
+        }
+        .section {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        .info-box, .herbolario div, .tizana, .chai {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .info-box img, .herbolario img, .tizana img, .chai img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .info-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .info-box:hover img, .herbolario div:hover img, .tizana:hover img, .chai:hover img {
+            transform: scale(1.1);
+        }
+        .info-box:hover .info-content, .herbolario div:hover .info-content, .tizana:hover .info-content, .chai:hover .info-content {
+            opacity: 1;
+        }
+        .herbolario {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .herbolario div {
+            flex: 1 1 30%;
+        }
+        .suggestion-box {
+            margin-top: 40px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            color: #333;
+        }
+        .suggestion-box h2 {
+            margin-bottom: 20px;
+        }
+        .suggestion-box form {
+            display: flex;
+            flex-direction: column;
+        }
+        .suggestion-box form input, .suggestion-box form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .suggestion-box form button {
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .suggestion-box form button:hover {
+            background: #45a049;
+        }
+        .qr-code {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .herbolario div {
+                flex: 1 1 45%;
+            }
+        }
+        @media (max-width: 480px) {
+            .herbolario {
+                display: block;
+            }
+            .herbolario div {
+                flex: 1 1 100%;
+                margin-bottom: 20px;
+            }
+            header img {
+                width: 120px;
+            }
+            .container {
+                width: 100%;
+                padding: 10px;
+            }
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <header>
+        <img src="logo.jpg" alt="Logo de la tienda">
+    </header>
+
+    <div class="container">
+       
+        <div class="section">
+            <h2>¿Qué es el Té?</h2>
+            <div class="info-box">
+                <img src="te.jpg" alt="Té">
+                <div class="info-content">
+                    Proviene de la planta <i>Camellia sinensis</i>, el sabor de esta famosa bebida es fresco, ligeramente amargo y astringente, esta planta contiene teína y por ello el nombre de té. Es común que la gente haga mención del té de manzanilla, anís, menta, hierbabuena, entre otros, los cuales en realidad no son té ya que estas hierbas no contienen teína.
+                </div>
+            </div>
+            <div class="info-box">
+                <img src="tipos_te.jpg" alt="Tipos de Té">
+                <div class="info-content">
+                    <strong>Té Verde:</strong> Este se identifica como el principal té en las dietas para adelgazar, por ejemplo, la matcha es destacada por el beneficio de sus antioxidantes. Además, el té verde posee propiedades antiinflamatorias, antivirales, mejora cognitiva y previene enfermedades neurodegenerativas.<br>
+                    <strong>Té Blanco:</strong> Este té no está procesado, por ello el sabor es delicado y suave. No contiene tanta teína como los demás, es rico en antioxidantes, ayuda a reducir la presión sanguínea, controla el colesterol, mantiene una salud bucal adecuada y tiene propiedades anticancerígenas.<br>
+                    <strong>Té Azul:</strong> Es una combinación del té verde y té negro, tiene un sabor ligeramente tostado y es destacado por su función digestiva, antioxidantes, fortalece las defensas y regula el nivel de colesterol.<br>
+                    <strong>Té Rojo:</strong> Este té es fermentado y es destacado por sus efectos calmantes, regula el nivel de colesterol, pierde peso y mejora la concentración.<br>
+                    <strong>Té Negro:</strong> Para que este té tome el color, la planta lleva un proceso de oxidación que lo lleva a tener un sabor intenso y aroma fuerte. El nivel de teína es más alto que los demás, se destaca por su beneficio disminuyendo la inflamación y mejorando el sistema inmune.<br>
+                    <strong>Té Amarillo:</strong> Es una combinación de té blanco y té verde obteniendo un sabor suave. Se destaca por su beneficio de antioxidantes y diuréticas, contiene minerales, hierro, fósforo, calcio, flúor, vitaminas B1, B2 y vitamina C.
+                </div>
+            </div>
+            <div class="info-box">
+                <img src="infusion.jpg" alt="Infusión">
+                <div class="info-content">
+                    Es una extracción de propiedades con agua caliente, como de manzanilla, menta, hierbas aromáticas, hojas, semillas, camotes, fruta, etc.
+                </div>
+            </div>
+        </div>
+
+       
+        <div class="section">
+            <h2>Herbolario</h2>
+            <div class="herbolario">
+                <div>
+                    <img src="lavanda.jpg" alt="Lavanda">
+                    <div class="info-content">
+                        Efecto calmante, relajante, antioxidante
+                    </div>
+                </div>
+                <div>
+                    <img src="manzanilla.jpg" alt="Manzanilla">
+                    <div class="info-content">
+                        Efecto protector del estómago, tranquilizante, antiséptica, aminora la inflamación, relajante, malestares de la menopausia.
+                    </div>
+                </div>
+                <div>
+                    <img src="salvia.jpg" alt="Salvia">
+                    <div class="info-content">
+                        Antibacteriana, antifúngica, antiviral, antioxidante, antiinflamatoria, astringente, antiperspirante.
+                    </div>
+                </div>
+                <div>
+                    <img src="romero.jpg" alt="Romero">
+                    <div class="info-content">
+                        Mejora la digestión, cansancio mental, mejora la circulación, combate la retención de líquidos, protector del hígado, antidiabético, antiinflamatorio.
+                    </div>
+                </div>
+                <div>
+                    <img src="bugambilia.jpg" alt="Bugambilia">
+                    <div class="info-content">
+                        Antitusivo, expectorante, febrífugo, purgante, antidiabético, antiácido, analgésico, antiséptico.
+                    </div>
+                </div>
+                <div>
+                    <img src="menta.jpg" alt="Menta">
+                    <div class="info-content">
+                        Descongestionante, antiinflamatorio, pérdida de peso, relajante, digestivo, antiséptico, antihistamínico.
+                    </div>
+                </div>
+                <div>
+                    <img src="albahaca.jpg" alt="Albahaca">
+                    <div class="info-content">
+                        Antiespasmódica, antibacteriana, antiinflamatoria, digestivo, dolor menstrual.
+                    </div>
+                </div>
+                <div>
+                    <img src="rosas.jpg" alt="Rosas">
+                    <div class="info-content">
+                        Antigripal, antioxidante, diurético, relajante.
+                    </div>
+                </div>
+                <div>
+                    <img src="hojas_guayaba.jpg" alt="Hojas de Guayaba">
+                    <div class="info-content">
+                        Antiparasitario, antidiarreico, auxilia el ácido úrico, evita la retención de líquidos, antiinflamatorio, antioxidante, anticoagulante.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="section tizana">
+            <h2>Tizanas</h2>
+            <img src="tizana.jpg" alt="Tizana">
+            <div class="info-content">
+                Esta bebida consiste en la extracción de una pequeña variedad de frutos deshidratados, hierbas, raíces, flores, e incluso especias.
+            </div>
+        </div>
+
+        
+        <div class="section">
+            <h2>Tipos de Tizana</h2>
+            <ul>
+                <li><strong>Rosa Mexicano:</strong> Pitaya+Kiwi+Manzana+Blue Berries (Reconfortante)</li>
+                <li><strong>Ponche Frutal:</strong> Almendra+Canela+Manzana+Jamaica (Reconfortante, Vitamina C, Digestivo)</li>
+                <li><strong>Verde Violeta:</strong> Té Verde+Violetas+Flor De Aciano (Antioxidante, Metabólico)</li>
+                <li><strong>México Prehispánico:</strong> Cacao+Dátil+Pasa+Chile Seco+Pétalos De Girasol (Reconfortante, Alto En Vitamina C)</li>
+                <li><strong>Relax:</strong> Manzanilla+Lavanda+Melissa+Flor De Azahar+Hojas De Fresa (Relajante)</li>
+                <li><strong>Imperial:</strong> Té Negro+Lavanda+Cáscara De Naranja (Estimulante)</li>
+            </ul>
+        </div>
+
+        
+        <div class="section chai">
+            <h2>¿Qué es un Chai?</h2>
+            <img src="chai.jpg" alt="Chai">
+            <div class="info-content">
+                La principal base es el té, acompañado con una mezcla de especias (cardamomo, clavo, anís de estrella, jengibre, canela, etc.) y finalizada con un toque de leche acremada.
+            </div>
+        </div>
+
+      
+        <div class="section qr-code">
+            <h2>Escanea el código QR para visitar nuestra página</h2>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://66ac15f842913a86a0a1da0f--superlative-hummingbird-cb2593.netlify.app/" alt="Código QR">
+        </div>
+
+        
+        <div class="section suggestion-box">
+            <h2>Buzón de Sugerencias</h2>
+            <form action="submit_suggestions.php" method="post">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="suggestion">Sugerencia:</label>
+                <textarea id="suggestion" name="suggestion" rows="4" required></textarea>
+                <button type="submit">Enviar Sugerencia</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
